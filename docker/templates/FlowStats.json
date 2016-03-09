@@ -1,0 +1,506 @@
+{
+"dashboard":{
+  "id": null,
+  "title": "flow-stats",
+  "originalTitle": "flow-stats",
+  "tags": [],
+  "style": "dark",
+  "timezone": "browser",
+  "editable": true,
+  "hideControls": false,
+  "sharedCrosshair": false,
+  "rows": [
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "mydata",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 1,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 12,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "refId": "B",
+              "target": "derivative(vne-rxgw.switch.$Switch.port.$Port.tx-bytes)",
+              "textEditor": false
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Tx Bytes",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ]
+        }
+      ],
+      "title": "Row"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "mydata",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 2,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 12,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "hide": false,
+              "refId": "A",
+              "target": "derivative(vne-rxgw.switch.$Switch.port.$Port.rx-bytes)"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Rx Bytes",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ]
+        }
+      ],
+      "title": "New row"
+    }
+  ],
+  "time": {
+    "from": "now-15m",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ],
+    "now": true
+  },
+  "templating": {
+    "list": [
+      {
+        "allFormat": "glob",
+        "current": {
+          "text": "0000000000000001",
+          "value": "0000000000000001"
+        },
+        "datasource": "mydata",
+        "includeAll": false,
+        "multi": true,
+        "multiFormat": "glob",
+        "name": "Switch",
+        "options": [
+          {
+            "text": "0000000000000001",
+            "value": "0000000000000001",
+            "selected": true
+          },
+          {
+            "text": "0000000000000002",
+            "value": "0000000000000002",
+            "selected": false
+          },
+          {
+            "text": "0000000000000003",
+            "value": "0000000000000003",
+            "selected": false
+          },
+          {
+            "text": "0000000000000004",
+            "value": "0000000000000004",
+            "selected": false
+          },
+          {
+            "text": "0000000000000005",
+            "value": "0000000000000005",
+            "selected": false
+          },
+          {
+            "text": "0000000000000006",
+            "value": "0000000000000006",
+            "selected": false
+          },
+          {
+            "text": "0000000000000007",
+            "value": "0000000000000007",
+            "selected": false
+          },
+          {
+            "text": "0000000000000008",
+            "value": "0000000000000008",
+            "selected": false
+          },
+          {
+            "text": "0000000000000009",
+            "value": "0000000000000009",
+            "selected": false
+          },
+          {
+            "text": "000000000000000a",
+            "value": "000000000000000a",
+            "selected": false
+          },
+          {
+            "text": "000000000000000b",
+            "value": "000000000000000b",
+            "selected": false
+          },
+          {
+            "text": "000000000000000c",
+            "value": "000000000000000c",
+            "selected": false
+          },
+          {
+            "text": "000000000000000d",
+            "value": "000000000000000d",
+            "selected": false
+          },
+          {
+            "text": "000000000000000e",
+            "value": "000000000000000e",
+            "selected": false
+          },
+          {
+            "text": "000000000000000f",
+            "value": "000000000000000f",
+            "selected": false
+          },
+          {
+            "text": "0000000000000010",
+            "value": "0000000000000010",
+            "selected": false
+          },
+          {
+            "text": "0000000000000011",
+            "value": "0000000000000011",
+            "selected": false
+          },
+          {
+            "text": "0000000000000012",
+            "value": "0000000000000012",
+            "selected": false
+          },
+          {
+            "text": "0000000000000013",
+            "value": "0000000000000013",
+            "selected": false
+          },
+          {
+            "text": "0000000000000014",
+            "value": "0000000000000014",
+            "selected": false
+          },
+          {
+            "text": "0000000000000015",
+            "value": "0000000000000015",
+            "selected": false
+          },
+          {
+            "text": "0000000000000016",
+            "value": "0000000000000016",
+            "selected": false
+          },
+          {
+            "text": "0000000000000017",
+            "value": "0000000000000017",
+            "selected": false
+          },
+          {
+            "text": "0000000000000018",
+            "value": "0000000000000018",
+            "selected": false
+          },
+          {
+            "text": "0000000000000019",
+            "value": "0000000000000019",
+            "selected": false
+          },
+          {
+            "text": "000000000000001a",
+            "value": "000000000000001a",
+            "selected": false
+          },
+          {
+            "text": "000000000000001b",
+            "value": "000000000000001b",
+            "selected": false
+          },
+          {
+            "text": "000000000000001c",
+            "value": "000000000000001c",
+            "selected": false
+          },
+          {
+            "text": "000000000000001d",
+            "value": "000000000000001d",
+            "selected": false
+          },
+          {
+            "text": "000000000000001e",
+            "value": "000000000000001e",
+            "selected": false
+          },
+          {
+            "text": "000000000000001f",
+            "value": "000000000000001f",
+            "selected": false
+          },
+          {
+            "text": "0000000000000020",
+            "value": "0000000000000020",
+            "selected": false
+          },
+          {
+            "text": "0000000000000021",
+            "value": "0000000000000021",
+            "selected": false
+          },
+          {
+            "text": "0000000000000022",
+            "value": "0000000000000022",
+            "selected": false
+          },
+          {
+            "text": "0000000000000023",
+            "value": "0000000000000023",
+            "selected": false
+          },
+          {
+            "text": "0000000000000024",
+            "value": "0000000000000024",
+            "selected": false
+          },
+          {
+            "text": "0000000000000025",
+            "value": "0000000000000025",
+            "selected": false
+          },
+          {
+            "text": "0000000000000026",
+            "value": "0000000000000026",
+            "selected": false
+          },
+          {
+            "text": "0000000000000027",
+            "value": "0000000000000027",
+            "selected": false
+          },
+          {
+            "text": "0000000000000028",
+            "value": "0000000000000028",
+            "selected": false
+          },
+          {
+            "text": "0000000000000029",
+            "value": "0000000000000029",
+            "selected": false
+          },
+          {
+            "text": "000000000000002a",
+            "value": "000000000000002a",
+            "selected": false
+          },
+          {
+            "text": "000000000000002b",
+            "value": "000000000000002b",
+            "selected": false
+          },
+          {
+            "text": "000000000000002c",
+            "value": "000000000000002c",
+            "selected": false
+          },
+          {
+            "text": "000000000000002d",
+            "value": "000000000000002d",
+            "selected": false
+          },
+          {
+            "text": "000000000000002e",
+            "value": "000000000000002e",
+            "selected": false
+          },
+          {
+            "text": "000000000000002f",
+            "value": "000000000000002f",
+            "selected": false
+          },
+          {
+            "text": "0000000000000030",
+            "value": "0000000000000030",
+            "selected": false
+          },
+          {
+            "text": "0000000000000031",
+            "value": "0000000000000031",
+            "selected": false
+          },
+          {
+            "text": "0000000000000032",
+            "value": "0000000000000032",
+            "selected": false
+          }
+        ],
+        "query": "vne-rxgw.switch.*",
+        "refresh": true,
+        "refresh_on_load": false,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "allFormat": "glob",
+        "current": {
+          "tags": [],
+          "text": "1 + 2",
+          "value": [
+            "1",
+            "2"
+          ]
+        },
+        "datasource": "mydata",
+        "includeAll": false,
+        "multi": true,
+        "multiFormat": "glob",
+        "name": "Port",
+        "options": [
+          {
+            "text": "1",
+            "value": "1",
+            "selected": true
+          },
+          {
+            "text": "2",
+            "value": "2",
+            "selected": true
+          },
+          {
+            "text": "4294967294",
+            "value": "4294967294",
+            "selected": false
+          }
+        ],
+        "query": "vne-rxgw.switch.$Switch.port.*",
+        "refresh": true,
+        "refresh_on_load": false,
+        "type": "query",
+        "useTags": false
+      }
+    ]
+  },
+  "annotations": {
+    "list": []
+  },
+  "refresh": false,
+  "schemaVersion": 7,
+  "version": 4,
+  "links": []
+},
+  "overwrite": false
+ }
