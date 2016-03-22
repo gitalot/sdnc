@@ -5,7 +5,7 @@ docker stop grafana 2>/dev/null
 docker rm grafana 2>/dev/null
 echo "done"
 
-echo "Stopping ofc_controller container... "
+echo "Stopping openflow controller container... "
 docker stop sdnc 2>/dev/null
 docker rm sdnc 2>/dev/null
 echo "done"
@@ -23,4 +23,8 @@ echo "done"
 echo "Stopping graphite container... "
 docker stop graphite 2>/dev/null
 docker rm graphite 2>/dev/null
+echo "done"
+
+echo "Removing sdnc_data container... "
+docker rm -v sdnc_data 2>/dev/null
 echo "done"
