@@ -8,8 +8,10 @@ function get_ip {
 
 cpuset=$cpuset_first
 
+docker create -v /data --name sdnc_data torusware/speedus-redis /bin/true &>/dev/null
+
 echo "Starting redis container... "
-docker run --name redis -d torusware/speedus-redis
+docker run --name redis -d --volumes-from sdnc_data torusware/speedus-redis
 if [ "$?" != "0" ]; then
     echo "fail"; exit 1;
 fi
@@ -17,7 +19,7 @@ echo "done"
 get_ip redis
 
 echo "Starting graphite container... "
-docker run -d --name graphite --restart=always vneio/graphite
+docker run -d --volumes-from sdnc_data --name graphite --restart=always vneio/graphite
 if [ "$?" != "0" ]; then
     echo "fail"; exit 1;
 fi
@@ -25,16 +27,16 @@ echo "done"
 get_ip graphite
 
 echo "Starting nerd application container... "
-docker run -d --name=nerd --link redis:redis --link graphite:graphite -p 9090:9090 vneio/nerd java -jar vne-io.jar
+docker run -d --volumes-from sdnc_data --name=nerd --link redis:redis --link graphite:graphite -p 9090:9090 vneio/nerd java -jar vne-io.jar
 if [ "$?" != "0" ]; then
     echo "fail"; exit 1;
 fi
 echo "done"
 get_ip nerd
 
-echo "Starting ofc_controller... "
-docker run -dt --privileged --name=sdnc -p 6633:6653 --link redis:redis vneio/sdnc /ofc_start.sh --redis-server=redis:6379 -m 100M --cpuset $cpuset
-#docker run -dt --privileged --name=sdnc -p 6633:6653 vneio/sdnc /ofc_server --redis-server=${redis_ip}:6379 --cpuset $cpuset
+echo "Starting openflow controller... "
+docker run -dt --volumes-from sdnc_data --privileged --name=sdnc -p 6633:6653 --link redis:redis vneio/sdnc /ofc_start.sh --redis-server=redis:6379 -m 100M --cpuset $cpuset
+#docker run -dt --volumes-from sdnc_data --privileged --name=sdnc -p 6633:6653 vneio/sdnc /ofc_server --redis-server=${redis_ip}:6379 --cpuset $cpuset
 if [ "$?" != "0" ]; then
     echo "fail"; exit 1;
 fi
@@ -43,7 +45,7 @@ cpuset=$((cpuset + 1))
 get_ip sdnc
 
 echo "Starting grafana... "
-docker run -dt --name=grafana --link graphite:graphite  -p 3000:3000 vneio/grafana
+docker run -dt --volumes-from sdnc_data --name=grafana --link graphite:graphite  -p 3000:3000 vneio/grafana
 if [ "$?" != "0" ]; then
     echo "fail"; exit 1;
 fi
