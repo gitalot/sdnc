@@ -35,8 +35,8 @@ echo "done"
 get_ip nerd
 
 echo "Starting openflow controller... "
-docker run -dt --volumes-from sdnc_data --privileged --name=sdnc -p 6633:6653 --link redis:redis vneio/sdnc /ofc_start.sh --redis-server=redis:6379 -m 100M --cpuset $cpuset
-#docker run -dt --volumes-from sdnc_data --privileged --name=sdnc -p 6633:6653 vneio/sdnc /ofc_server --redis-server=${redis_ip}:6379 --cpuset $cpuset
+docker run -dt --volumes-from sdnc_data --privileged --name=sdnc -p 6633:6633 --link redis:redis vneio/sdnc /ofc_start.sh --port 6633 --redis-server=redis:6379 -m 100M --cpuset $cpuset
+#docker run -dt --volumes-from sdnc_data --privileged --name=sdnc -p 6633:6633 vneio/sdnc /ofc_server --port 6633 --redis-server=${redis_ip}:6379 --cpuset $cpuset
 if [ "$?" != "0" ]; then
     echo "fail"; exit 1;
 fi
